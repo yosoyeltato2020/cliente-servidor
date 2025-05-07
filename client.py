@@ -1,10 +1,8 @@
-from flask import Flask
+import requests
 
-app = Flask(__name__)
 
-@app.route('/mensaje')
-def enviar_mensaje():
-    return "Hola mundo desde el servidor"
+url = 'http://127.0.0.1:5000/mensaje'
 
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000)
+respuesta = requests.get(url)
+
+print("Respuesta del servidor:", respuesta.text)
